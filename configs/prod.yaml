@@ -1,0 +1,24 @@
+server:
+  port: 8800
+  mode: release
+logging:
+  logLevel: 0  # -1 TRACE | 0 DEBUG | 1 INFO (default) | 2 WARN
+  outputFormat: TEXT # TEXT | JSON (default)
+database:
+  postgres:
+    host: ${secureHost}
+    port: ${securePort}
+    user: ${secureUser}
+    password: ${securePassword}
+    name: ${secureName}
+    sslMode: disable
+    timeZone: Europe/Berlin
+rest:
+  debug: true
+  timeoutSeconds: 5
+authentication:
+  hmacEnabled: true
+  allowedUsers:
+    - name: testName
+      key: testKey
+      secret: dGVzdFNlY3JldA==

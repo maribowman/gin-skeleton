@@ -1,0 +1,24 @@
+server:
+  port: 8800
+  mode: debug
+logging:
+  logLevel: 0  # -1 TRACE | 0 DEBUG | 1 INFO (default) | 2 WARN
+  outputFormat: TEXT # TEXT | JSON (default)
+database:
+  postgres:
+    host: localhost
+    port: 5432
+    user: postgres
+    password: postgres
+    name: postgres
+    sslMode: disable
+    timeZone: Europe/Berlin
+rest:
+  debug: true
+  timeoutSeconds: 5
+authentication:
+  hmacEnabled: false
+  allowedUsers:
+    - name: testName
+      key: testKey
+      secret: dGVzdFNlY3JldA==
