@@ -9,7 +9,6 @@ github.com/cespare/xxhash/v2
 github.com/davecgh/go-spew/spew
 # github.com/fomo-labs/commons v0.0.0-20220908093535-386a12b4abe3
 ## explicit; go 1.19
-github.com/fomo-labs/commons/model
 # github.com/fsnotify/fsnotify v1.6.0
 ## explicit; go 1.16
 github.com/fsnotify/fsnotify

@@ -3,7 +3,6 @@ module github.com/maribowman/gin-skeleton
 go 1.19
 
 require (
-	github.com/fomo-labs/commons v0.0.0-20220908093535-386a12b4abe3
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/go-sanitize/sanitize v1.0.1
