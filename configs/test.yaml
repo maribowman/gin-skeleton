@@ -16,6 +16,8 @@ database:
 rest:
   debug: true
   timeoutSeconds: 5
+  demoRestClient:
+    baseUrl: https://gorest.co.in
 authentication:
   hmacEnabled: false
   allowedUsers:
