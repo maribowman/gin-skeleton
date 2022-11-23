@@ -1,9 +1,9 @@
 package model
 
-type DemoCommentDTO struct {
+type DemoUserDTO struct {
 	Id     int    `json:"id"`
-	PostId int    `json:"post_id"`
 	Name   string `json:"name"`
 	Email  string `json:"email"`
-	Body   string `json:"body"`
+	Gender string `json:"gender"`
+	Status string `json:"status"`
 }

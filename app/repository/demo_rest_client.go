@@ -20,8 +20,12 @@ func NewDemoRestClient() DemoRestClient {
 	}
 }
 
-func (client DemoRestClient) GetDemoComments() (comments []model.DemoCommentDTO, err error) {
-	response, err := GetSomething(client.restyClient, "/public/v2/comments", nil, nil, nil)
+func (client DemoRestClient) GetDemoUsers(limit int) (comments []model.DemoUserDTO, err error) {
+	var requestParams = make(map[string]string)
+	requestParams["page"] = "1"
+	requestParams["per_page"] = string(rune(limit))
+
+	response, err := GetSomething(client.restyClient, "/public/v2/comments", nil, nil, requestParams)
 	if err != nil {
 		return
 	}

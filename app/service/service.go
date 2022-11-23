@@ -21,7 +21,7 @@ func NewService(wiring ServiceWiring) *Service {
 	}
 }
 
-func (service *Service) GetDemoComments() ([]model.DemoCommentDTO, error) {
+func (service *Service) GetDemoUsers(limit int) ([]model.DemoUserDTO, error) {
 	// only smart code here
-	return service.demoRestClient.GetDemoComments()
+	return service.demoRestClient.GetDemoUsers(limit)
 }

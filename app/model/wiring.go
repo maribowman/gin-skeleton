@@ -8,5 +8,5 @@ type DatabaseClient interface {
 }
 
 type DemoRestClient interface {
-	GetDemoComments() ([]DemoCommentDTO, error)
+	GetDemoUsers(limit int) ([]DemoUserDTO, error)
 }
