@@ -19,7 +19,7 @@ func TestGetDemoComments(t *testing.T) {
 			testName: "give me MJ as user",
 			limit:    5,
 			expected: []model.DemoUserDTO{{
-				Id:     0,
+				Id:     23,
 				Name:   "Michael",
 				Email:  "Jordan",
 				Gender: "male",
@@ -36,7 +36,7 @@ func TestGetDemoComments(t *testing.T) {
 	mockDemoRestClient := new(mocks.DemoRestClient)
 	mockDemoRestClient.On("GetDemoUsers", mock.Anything).
 		Return([]model.DemoUserDTO{{
-			Id:     0,
+			Id:     23,
 			Name:   "Michael",
 			Email:  "Jordan",
 			Gender: "male",
