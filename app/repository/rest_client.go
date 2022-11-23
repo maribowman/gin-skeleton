@@ -8,8 +8,8 @@ import (
 
 func NewRestyClient(baseUrl string) *resty.Client {
 	return resty.New().
-		SetDebug(config.Config.RestClient.Debug).
-		SetTimeout(time.Duration(config.Config.RestClient.TimeoutSeconds) * time.Second).
+		SetDebug(config.Config.RestConfig.Debug).
+		SetTimeout(time.Duration(config.Config.RestConfig.TimeoutSeconds) * time.Second).
 		SetBaseURL(baseUrl)
 }
 

@@ -13,8 +13,7 @@ type config struct {
 	Server         ServerConfig
 	Logging        LoggingConfig
 	Database       DatabaseConfig
-	RestClient     RestConfig
-	DemoRestClient DemoRestClientConfig
+	RestConfig     RestConfig
 	Authentication AuthenticationConfig
 }
 

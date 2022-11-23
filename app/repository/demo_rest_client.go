@@ -16,7 +16,7 @@ type DemoRestClient struct {
 
 func NewDemoRestClient() DemoRestClient {
 	return DemoRestClient{
-		restyClient: NewRestyClient(config.Config.DemoRestClient.BaseUrl),
+		restyClient: NewRestyClient(config.Config.RestConfig.DemoRestClient.BaseUrl),
 	}
 }
 
@@ -25,7 +25,7 @@ func (client DemoRestClient) GetDemoUsers(limit int) (comments []model.DemoUserD
 	requestParams["page"] = "1"
 	requestParams["per_page"] = string(rune(limit))
 
-	response, err := GetSomething(client.restyClient, "/public/v2/comments", nil, nil, requestParams)
+	response, err := GetSomething(client.restyClient, "/public/v2/users", nil, nil, requestParams)
 	if err != nil {
 		return
 	}
