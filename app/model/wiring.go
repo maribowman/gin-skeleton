@@ -7,5 +7,6 @@ type DatabaseClient interface {
 	CloseDatabaseConnections()
 }
 
-type RestClient interface {
+type DemoRestClient interface {
+	GetDemoComments() ([]DemoCommentDTO, error)
 }

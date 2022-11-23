@@ -6,6 +6,7 @@ import (
 	"github.com/maribowman/gin-skeleton/app/config"
 	"github.com/maribowman/gin-skeleton/app/controller"
 	"github.com/maribowman/gin-skeleton/app/model"
+	"github.com/maribowman/gin-skeleton/app/repository"
 	"github.com/maribowman/gin-skeleton/app/service"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
@@ -18,7 +19,7 @@ func InitServer(databaseClient model.DatabaseClient) (*http.Server, error) {
 		Router: router,
 		Service: service.NewService(service.ServiceWiring{
 			DatabaseClient: databaseClient,
-			RestClient:     nil,
+			RestClient:     repository.NewDemoRestClient(),
 		}),
 		PrometheusHandler: promhttp.Handler(),
 	})

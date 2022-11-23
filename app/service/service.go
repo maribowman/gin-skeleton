@@ -6,21 +6,22 @@ import (
 
 type Service struct {
 	databaseClient model.DatabaseClient
-	restClient     model.RestClient
+	demoRestClient model.DemoRestClient
 }
 
 type ServiceWiring struct {
 	DatabaseClient model.DatabaseClient
-	RestClient     model.RestClient
+	RestClient     model.DemoRestClient
 }
 
 func NewService(wiring ServiceWiring) *Service {
 	return &Service{
 		databaseClient: wiring.DatabaseClient,
-		restClient:     wiring.RestClient,
+		demoRestClient: wiring.RestClient,
 	}
 }
 
-func (service *Service) BusinessLogic() {
+func (service *Service) GetDemoComments() ([]model.DemoCommentDTO, error) {
 	// only smart code here
+	return service.demoRestClient.GetDemoComments()
 }
