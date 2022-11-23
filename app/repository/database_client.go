@@ -38,8 +38,9 @@ func initPostgresConnection() (*gorm.DB, error) {
 		})
 		if err != nil {
 			log.Fatal().Err(err)
+		} else {
+			postgresChannel <- psql
 		}
-		postgresChannel <- psql
 	}()
 
 	var psql *gorm.DB
@@ -47,6 +48,7 @@ func initPostgresConnection() (*gorm.DB, error) {
 	case <-time.After(5 * time.Second):
 		log.Fatal().Msg("database connection-init timed out - shutting down.")
 	case psql = <-postgresChannel:
+		log.Info().Msg("opened postgres connection")
 	}
 
 	log.Info().Msg("testing database connection") // -> db connection is lazily loaded
