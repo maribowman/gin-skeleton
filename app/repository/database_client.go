@@ -27,7 +27,8 @@ func NewDatabaseClient() (model.DatabaseClient, error) {
 }
 
 func initPostgresConnection() (*gorm.DB, error) {
-	postgresChannel := make(chan *gorm.DB, 1)
+	timeoutChannel := make(chan *gorm.DB, 1)
+	defer close(timeoutChannel)
 
 	go func() {
 		log.Info().Msg("establishing postgres connection")
@@ -39,7 +40,7 @@ func initPostgresConnection() (*gorm.DB, error) {
 		if err != nil {
 			log.Fatal().Err(err)
 		} else {
-			postgresChannel <- psql
+			timeoutChannel <- psql
 		}
 	}()
 
@@ -47,7 +48,7 @@ func initPostgresConnection() (*gorm.DB, error) {
 	select {
 	case <-time.After(5 * time.Second):
 		log.Fatal().Msg("database connection-init timed out - shutting down.")
-	case psql = <-postgresChannel:
+	case psql = <-timeoutChannel:
 		log.Info().Msg("opened postgres connection")
 	}
 
